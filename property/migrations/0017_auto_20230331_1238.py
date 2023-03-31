@@ -12,6 +12,10 @@ def fill_owners(apps, schema_editor):
                                     owner_pure_phone=flat.owner_pure_phone,
                                     )
 
+def move_back(apps, schema_editor):
+    Owner = apps.get_model('property', 'Owner')
+    Owner.objects.all().delete()
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -19,5 +23,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(fill_owners)
+        migrations.RunPython(fill_owners, move_back)
     ]
