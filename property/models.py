@@ -7,7 +7,7 @@ class Flat(models.Model):
     owner = models.CharField('ФИО владельца', max_length=200)
     owner_pure_phone = PhoneNumberField('Номер владельца', blank=True)
     new_building = models.BooleanField(blank=True, null=True, default=None)
-    liked_by = models.ManyToManyField(User, related_name='liked_flats')
+    liked_by = models.ManyToManyField(User, related_name='liked_flats', blank=True, null=True)
     created_at = models.DateTimeField(
         'Когда создано объявление',
         default=timezone.now,
