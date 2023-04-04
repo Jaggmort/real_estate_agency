@@ -83,7 +83,7 @@ class Owner(models.Model):
                                         null=True,
                                         )
     flats = models.ManyToManyField(Flat,
-                                       related_name='owned_flats',
+                                       related_name='flat_owners',
                                        null=True,
                                        blank=True
                                        )
