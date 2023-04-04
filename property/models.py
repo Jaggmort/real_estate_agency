@@ -73,7 +73,7 @@ class Complain(models.Model):
                                       verbose_name=verb,
                                       on_delete=models.CASCADE,
                                       )
-    complain = models.CharField('Текст жалобы', max_length=200)
+    text = models.CharField('Текст жалобы', max_length=200)
 
 
 class Owner(models.Model):
