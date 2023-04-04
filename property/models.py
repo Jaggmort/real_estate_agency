@@ -69,7 +69,7 @@ class Complain(models.Model):
                              verbose_name='Кто жаловался',
                              on_delete=models.CASCADE,
                              )
-    complain_flat = models.ForeignKey(Flat,
+    flat = models.ForeignKey(Flat,
                                       verbose_name=verb,
                                       on_delete=models.CASCADE,
                                       )
@@ -78,12 +78,12 @@ class Complain(models.Model):
 
 class Owner(models.Model):
     owner = models.CharField('ФИО владельца', max_length=200)
-    owners_phonenumber = models.CharField('Номер владельца', max_length=20)
-    owner_pure_phone = PhoneNumberField('Нормализованный номер владельца',
+    phonenumber = models.CharField('Номер владельца', max_length=20)
+    pure_phone = PhoneNumberField('Нормализованный номер владельца',
                                         blank=True,
                                         null=True,
                                         )
-    own_flats = models.ManyToManyField(Flat,
+    flats = models.ManyToManyField(Flat,
                                        related_name='owned_flats',
                                        null=True,
                                        blank=True

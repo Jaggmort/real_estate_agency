@@ -3,7 +3,7 @@ from .models import Flat, Complain, Owner
 
 
 class OwnerInline(admin.TabularInline):
-    model = Owner.own_flats.through
+    model = Owner.flats.through
 
 
 @admin.register(Flat)
@@ -25,10 +25,10 @@ class FlatAdmin(admin.ModelAdmin):
 
 @admin.register(Complain)
 class ComplainAdmin(admin.ModelAdmin):
-    raw_id_fields = ['user', 'complain_flat']
+    raw_id_fields = ['user']
 
 
 @admin.register(Owner)
 class OwnerAdmin(admin.ModelAdmin):
-    list_display = ['owner', 'owners_phonenumber', 'owner_pure_phone']
-    raw_id_fields = ['own_flats']
+    list_display = ['owner', 'phonenumber', 'pure_phone']
+    raw_id_fields = ['flats']
