@@ -64,15 +64,14 @@ class Flat(models.Model):
 
 
 class Complain(models.Model):
-    verb = 'Квартира, на которую жаловались'
     user = models.ForeignKey(User,
                              verbose_name='Кто жаловался',
                              on_delete=models.CASCADE,
                              )
     flat = models.ForeignKey(Flat,
-                                      verbose_name=verb,
-                                      on_delete=models.CASCADE,
-                                      )
+                             verbose_name='Квартира, на которую жаловались',
+                             on_delete=models.CASCADE,
+                             )
     text = models.CharField('Текст жалобы', max_length=200)
 
 
