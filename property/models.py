@@ -61,12 +61,12 @@ class Complain(models.Model):
     user = models.ForeignKey(User,
                              verbose_name='Кто жаловался',
                              on_delete=models.CASCADE,
-                             related_name='user_complains'
+                             related_name='complains'
                              )
     flat = models.ForeignKey(Flat,
                              verbose_name='Квартира, на которую жаловались',
                              on_delete=models.CASCADE,
-                             related_name='flat_complains'
+                             related_name='complains'
                              )
     text = models.CharField('Текст жалобы', max_length=200)
 
