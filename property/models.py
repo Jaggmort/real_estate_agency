@@ -79,10 +79,10 @@ class Owner(models.Model):
                                   null=True,
                                   )
     flats = models.ManyToManyField(Flat,
-                                   related_name='flat_owners',
+                                   related_name='owners',
                                    null=True,
                                    blank=True,
                                    )
 
     def __str__(self):
-        return self.owner
+        return self.name
