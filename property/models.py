@@ -57,16 +57,16 @@ class Flat(models.Model):
         return f'{self.town}, {self.address} ({self.price}р.)'
 
 
-class Complain(models.Model):
+class Complaint(models.Model):
     user = models.ForeignKey(User,
                              verbose_name='Кто жаловался',
                              on_delete=models.CASCADE,
-                             related_name='complains'
+                             related_name='complaints'
                              )
     flat = models.ForeignKey(Flat,
                              verbose_name='Квартира, на которую жаловались',
                              on_delete=models.CASCADE,
-                             related_name='complains'
+                             related_name='complaints'
                              )
     text = models.CharField('Текст жалобы', max_length=200)
 
